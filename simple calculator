@@ -1,0 +1,39 @@
+class Calculator:
+    def __init__(self):
+        pass
+
+    def add(self, *args):
+        result = sum(args)
+        return result
+
+    def sub(self, *args):
+        result = args[0]
+        for i in range(1, len(args)):
+            result -= args[i]
+        return result
+
+    def mul(self, *args):
+        result = 1
+        for num in args:
+            result *= num
+        return result
+
+    def div(self, *args):
+        result = args[0]
+        for i in range(1, len(args)):
+            if args[i] == 0:
+                return "Division by zero!"
+            result /= args[i]
+        return result
+
+
+
+num = Calculator()
+result = num.add(1, 2, 3, 4, 5)
+print("Addition:", result)  # Output: 15
+result = num.sub(1, 2, 3, 4, 5)
+print("Subtraction:", result) # Output: -13
+result = num.mul(1, 2, 3, 4, 5)
+print("Multiplication:", result) # Output: 120
+result = num.div(1, 2, 3, 4, 5)
+print("Division:", result)  # Output: 0.008333333333333333
