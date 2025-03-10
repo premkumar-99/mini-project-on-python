@@ -1,0 +1,41 @@
+import random
+
+class RockPaperScissors:
+    def __init__(self):
+        self.options = ["rock", "paper", "scissors"]
+        self.user_choice = None
+        self.computer_choice = None
+        self.result = None
+
+    def get_user_choice(self):
+        while True:
+            self.user_choice = input("Choose rock, paper, or scissors: ").lower()
+            if self.user_choice in self.options:
+                break
+            else:
+                print("Invalid choice. Please choose rock, paper, or scissors.")
+
+    def get_computer_choice(self):
+        self.computer_choice = random.choice(self.options)
+
+    def determine_winner(self):
+        if self.user_choice == self.computer_choice:
+            self.result = "It's a tie!"
+        elif (self.user_choice == "rock" and self.computer_choice == "scissors") or \
+             (self.user_choice == "paper" and self.computer_choice == "rock") or \
+             (self.user_choice == "scissors" and self.computer_choice == "paper"):
+            self.result = "You win!"
+        else:
+            self.result = "You lose!"
+
+    def play(self):
+        self.get_user_choice()
+        self.get_computer_choice()
+        self.determine_winner()
+        print(f"You chose: {self.user_choice}")
+        print(f"Computer chose: {self.computer_choice}")
+        print(self.result)
+
+# Create an instance of the game and start playing
+game = RockPaperScissors()
+game.play()
