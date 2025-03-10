@@ -1,0 +1,73 @@
+class Animal:
+    def __init__(self, name, species, sound):
+        self.name = name
+        self.species = species
+        self.sound = sound
+
+    def make_sound(self):
+        print(f"{self.name} says: {self.sound}")
+
+    def display_info(self):
+        print(f"Name: {self.name}")
+        print(f"Species: {self.species}")
+        print(f"Sound: {self.sound}")
+
+class Mammal(Animal):
+    def __init__(self, name, species, sound, has_fur, warm_blooded):
+        super().__init__(name, species, sound)
+        self.has_fur = has_fur
+        self.warm_blooded = warm_blooded
+
+    def display_info(self):
+        super().display_info()
+        print(f"Has Fur: {self.has_fur}")
+        print(f"Warm Blooded: {self.warm_blooded}")
+
+class Bird(Animal):
+    def __init__(self, name, species, sound, can_fly, has_feathers):
+        super().__init__(name, species, sound)
+        self.can_fly = can_fly
+        self.has_feathers = has_feathers
+
+    def display_info(self):
+        super().display_info()
+        print(f"Can Fly: {self.can_fly}")
+        print(f"Has Feathers: {self.has_feathers}")
+
+class Dog(Mammal):
+    def __init__(self, name, breed):
+        super().__init__(name, "Dog", "Woof!", True, True)
+        self.breed = breed
+
+    def make_sound(self):
+        print(f"{self.name} barks: Woof Woof!")
+
+    def display_info(self):
+        super().display_info()
+        print(f"Breed: {self.breed}")
+
+class Eagle(Bird):
+    def __init__(self, name, wingspan):
+        super().__init__(name, "Eagle", "Screech!", True, True)
+        self.wingspan = wingspan
+
+    def make_sound(self):
+        print(f"{self.name} screeches: Keeeee!")
+
+    def display_info(self):
+        super().display_info()
+        print(f"Wingspan: {self.wingspan} meters")
+
+# Example Usage
+dog1 = Dog("Buddy", "Golden Retriever")
+eagle1 = Eagle("Freedom", 2.0)
+
+dog1.make_sound()
+dog1.display_info()
+
+eagle1.make_sound()
+eagle1.display_info()
+
+animal1 = Animal("Snakey", "Snake", "Hiss")
+animal1.make_sound()
+animal1.display_info()
